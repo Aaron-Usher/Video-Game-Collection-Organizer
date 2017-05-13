@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<p>Hi! Welcome to the video game tracker, a site to help you keep track of what video games you own.</p>
+@*Don't forget the null check! Seriously, don't forget the null check.*@
+@if (User == null || !User.Identity.IsAuthenticated)
+{
+    <p>Please log in or register to start tracking your games today!</p>    
+}

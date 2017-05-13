@@ -1,0 +1,73 @@
+﻿@model VideoGameDataObjects.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Console)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Console)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsOwned)
+        </dd>
+
+        @*This (and any other use of Model.Isowned) throws a null reference exception for reasons unkown to me.
+        @{bool isOwned = Model.IsOwned; }
+        *@
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        <div class="form-actions no-color">
+            @{
+                var buttonValue = "I own this game.";
+                if (ViewBag.IsOwned)
+                {
+                    buttonValue = "I don't really own this game.";
+                }
+            }
+
+
+            <input type="submit" id="Details" value="@buttonValue" class="btn btn-default" formmethod="post" />
+        </div>
+
+                }
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

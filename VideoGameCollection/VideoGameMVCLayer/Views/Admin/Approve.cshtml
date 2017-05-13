@@ -1,0 +1,66 @@
+﻿@model VideoGameDataObjects.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Console)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Console)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Developer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Developer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publisher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+
+        @{
+            ViewBag.GameId = Model.Id;
+        }
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        <div class="form-actions no-color">
+
+
+
+            <input type="submit" id="Approve" value="Approve" class="btn btn-default" formmethod="post" />
+            
+        </div>
+        
+
+    }
+    @Html.ActionLink("Deny", "Deny", new { id = Model.Id }, new { @class = "btn btn-default" })
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

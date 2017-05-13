@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameMVCLayer", "VideoGameMVCLayer\VideoGameMVCLayer.csproj", "{B39D87E2-870B-4E30-8E40-DBA33DBE301F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameLogicLayer", "VideoGameLogicLayer\VideoGameLogicLayer.csproj", "{80B99759-4127-45AC-A6BF-9A3D55C6D207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameDataAccess", "VideoGameDataAccess\VideoGameDataAccess.csproj", "{B7EFB5BD-6BD7-4CC0-8899-BDD03A078015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoGameDataObjects", "VideoGameDataObjects\VideoGameDataObjects.csproj", "{2D1BA04A-23FF-43EF-9F1C-B884BFDA8BA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B39D87E2-870B-4E30-8E40-DBA33DBE301F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B39D87E2-870B-4E30-8E40-DBA33DBE301F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B39D87E2-870B-4E30-8E40-DBA33DBE301F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B39D87E2-870B-4E30-8E40-DBA33DBE301F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B99759-4127-45AC-A6BF-9A3D55C6D207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B99759-4127-45AC-A6BF-9A3D55C6D207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B99759-4127-45AC-A6BF-9A3D55C6D207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B99759-4127-45AC-A6BF-9A3D55C6D207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EFB5BD-6BD7-4CC0-8899-BDD03A078015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EFB5BD-6BD7-4CC0-8899-BDD03A078015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EFB5BD-6BD7-4CC0-8899-BDD03A078015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EFB5BD-6BD7-4CC0-8899-BDD03A078015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1BA04A-23FF-43EF-9F1C-B884BFDA8BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1BA04A-23FF-43EF-9F1C-B884BFDA8BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1BA04A-23FF-43EF-9F1C-B884BFDA8BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1BA04A-23FF-43EF-9F1C-B884BFDA8BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
