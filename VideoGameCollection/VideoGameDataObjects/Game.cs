@@ -80,7 +80,7 @@ namespace VideoGameDataObjects
             //if g1 is null...
             if ((object)g1 == null)
             {
-                //check if g2 is null. If so, equal! If not, then not.
+                //check if g2 is null. If so, they are equal! If not, then not.
                 if ((object)g2 == null)
                 {
                     return true;

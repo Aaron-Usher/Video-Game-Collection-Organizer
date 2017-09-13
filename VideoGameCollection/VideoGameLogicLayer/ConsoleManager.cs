@@ -11,7 +11,7 @@ namespace VideoGameLogicLayer
     public class ConsoleManager
     {
         /// <summary>
-        /// All of the retrieve methods take an optional "active" parameter; basically, you can pass it a true
+        /// All of the retrieve methods take an optional "active" parameter; basically, you can pass it a false
         /// in order to get all of the unapproved items.
         /// </summary>
         /// <param name="active"></param>

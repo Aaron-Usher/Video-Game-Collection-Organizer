@@ -733,15 +733,17 @@ CREATE PROCEDURE [dbo].[vsp_delete_game]
 	@GAME_ID INT
 )
 AS
-	BEGIN TRANSACTION
+	--This transaction is actually just the same as ON DELETE CASCADE, but I somehow forgot about that...
+	/*BEGIN TRANSACTION
 	
 	DELETE FROM [dbo].[USER_GAME]
 	WHERE GAME_ID = @GAME_ID
-	
+	*/
 	DELETE FROM [dbo].[GAME]
 	WHERE GAME_ID = @GAME_ID
-	
+	/*
 	COMMIT TRANSACTION
+	*/
 GO
 
 print'' print'***Creating procedure vsp_approve_publisher'
