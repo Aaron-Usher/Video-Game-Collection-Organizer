@@ -130,5 +130,33 @@ namespace VideoGameDataAccess
 
             return rows;
         }
+
+        public static int CountPublisher(string publisher)
+        {
+            var count = 0;
+
+            var conn = DatabaseConnection.RetrieveDatabaseConnection();
+            var cmdText = @"vsp_count_publisher";
+            var cmd = new SqlCommand(cmdText, conn) { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@PUBLISHER_ID", publisher);
+
+            try
+            {
+                conn.Open();
+                count = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return count;
+        }
+
     }
 }

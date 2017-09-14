@@ -1,6 +1,7 @@
 --So, I decided to do something completely different from my .NET II final like two weeks before it was due, and this was the best option.
 
---Also, I did all of the keys inline, to see what that would be like.
+--Also, I did all of the keys inline, to see what that would be like; I am pleased with how
+--clean it looks, but it is a bit clunky, and not a very bad idea on a bigger project.
 IF EXISTS(SELECT 1 FROM master.dbo.sysdatabases WHERE name = 'VideoGameDatabase')
 BEGIN
 	print '' print '*** dropping database VideoGameDatabase'
@@ -97,7 +98,7 @@ CREATE TABLE [dbo].[DEVELOPER](
 GO
 
 --https://en.wikipedia.org/wiki/List_of_video_game_developers
---Most of these came from the following link.
+--Most of these came from the preceeding link.
 
 print'' print'***Inserting sample DEVELOPER data'
 GO
@@ -796,6 +797,51 @@ AS
 	SET IS_APPROVED = 1
 	WHERE GAME_ID = @GAME_ID
 	RETURN @@ROWCOUNT
+GO
+
+print'' print'***Creating procedure vsp_count_console'
+GO
+CREATE PROCEDURE [dbo].[vsp_count_console]
+(
+	@CONSOLE_ID INT
+)
+AS
+	BEGIN
+		SELECT COUNT(*)
+		FROM GAME, USER_GAME
+		WHERE USER_GAME.GAME_ID = GAME.GAME_ID
+		AND GAME.CONSOLE_ID = @CONSOLE_ID
+	END
+GO
+
+print'' print'***Creating procedure vsp_count_developer'
+GO
+CREATE PROCEDURE [dbo].[vsp_count_developer]
+(
+	@DEVELOPER_ID INT
+)
+AS
+	BEGIN
+		SELECT COUNT(*)
+		FROM GAME, USER_GAME
+		WHERE USER_GAME.GAME_ID = GAME.GAME_ID
+		AND GAME.DEVELOPER_ID = @DEVELOPER_ID
+	END
+GO
+
+print'' print'***Creating procedure vsp_count_publisher'
+GO
+CREATE PROCEDURE [dbo].[vsp_count_publisher]
+(
+	@PUBLISHER_ID INT
+)
+AS
+	BEGIN
+		SELECT COUNT(*)
+		FROM GAME, USER_GAME
+		WHERE USER_GAME.GAME_ID = GAME.GAME_ID
+		AND GAME.PUBLISHER_ID = @PUBLISHER_ID
+	END
 GO
 
 --One final print to make it look better.

@@ -57,15 +57,11 @@ namespace VideoGameLogicLayer
         // can't delete a foreign key while it is still referenced, so into seperate methods they went.
         public static bool UpdateConsole(string newConsole)
         {
-            bool result = false;
-            List<Game> games = GameManager.RetrieveAllGames();
-            if (games.Count(g => g.Console == newConsole) == 0)
+            bool result = true;
+  
+            if (CountConsole(newConsole) == 0)
             {
                 result = 1 == ConsoleAccessor.CreateConsole(newConsole, true);
-            }
-            else
-            {
-                result = true;
             }
 
             return result;
@@ -78,8 +74,7 @@ namespace VideoGameLogicLayer
             {
                 return true;
             }
-            List<Game> games = GameManager.RetrieveAllGames();
-            if (games.Count(g => g.Console == oldConsole) == 0)
+            if (CountConsole(oldConsole) == 0)
             {
                 result = 1 == ConsoleAccessor.DeleteConsole(oldConsole);
             }
@@ -101,6 +96,22 @@ namespace VideoGameLogicLayer
             }
 
             return result;
+        }
+
+        public static int CountConsole(string console)
+        {
+            int count = 0;
+
+            try
+            {
+                count = ConsoleAccessor.CountConsole(console);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+
+            return count;
         }
 
     }

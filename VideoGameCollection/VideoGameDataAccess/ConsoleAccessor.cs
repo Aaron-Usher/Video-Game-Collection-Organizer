@@ -129,6 +129,33 @@ namespace VideoGameDataAccess
 
             return rows;
         }
+
+        public static int CountConsole(string console)
+        {
+            var count = 0;
+
+            var conn = DatabaseConnection.RetrieveDatabaseConnection();
+            var cmdText = @"vsp_count_console";
+            var cmd = new SqlCommand(cmdText, conn) { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@CONSOLE_ID", console);
+
+            try
+            {
+                conn.Open();
+                count = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return count;
+        }
     }
 
 }

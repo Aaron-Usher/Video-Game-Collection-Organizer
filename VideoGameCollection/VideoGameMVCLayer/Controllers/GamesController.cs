@@ -41,7 +41,7 @@ namespace VideoGameMVCLayer.Controllers
             //actualy figure out how to let the user choose their own.
             if (pageSize == null)
             {
-                pageSize = ViewBag.PageSize != null ? ViewBag.PageSize : 5;
+                pageSize = ViewBag.PageSize ?? 5;
             }
             else
             {

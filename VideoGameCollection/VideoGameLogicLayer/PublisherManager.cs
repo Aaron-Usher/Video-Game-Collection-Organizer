@@ -46,16 +46,11 @@ namespace VideoGameLogicLayer
 
         public static bool UpdatePublisher(string newPublisher)
         {
-            bool result = false;
+            bool result = true;
 
-            List<Game> games = GameManager.RetrieveAllGames();
-            if (games.Count(g => g.Publisher == newPublisher) == 0)
+            if (CountPublisher(newPublisher) == 0)
             {
                 result = 1 == PublisherAccessor.CreatePublisher(newPublisher, true);
-            }
-            else
-            {
-                result = true;
             }
             
             return result;
@@ -68,8 +63,7 @@ namespace VideoGameLogicLayer
             {
                 return true;
             }
-            List<Game> games = GameManager.RetrieveAllGames();
-            if (games.Count(g => g.Publisher == oldPublisher) == 0)
+            if (CountPublisher(oldPublisher) == 0)
             {
                 result = 1 == PublisherAccessor.DeletePublisher(oldPublisher);
             }
@@ -92,6 +86,23 @@ namespace VideoGameLogicLayer
             }
 
             return result;
+        }
+
+        public static int CountPublisher(string publisher)
+        {
+            int count = 0;
+
+            try
+            {
+                count = PublisherAccessor.CountPublisher(publisher);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
+            return count;
         }
 
     }

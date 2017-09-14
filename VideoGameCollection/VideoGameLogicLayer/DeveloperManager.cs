@@ -47,15 +47,10 @@ namespace VideoGameLogicLayer
 
         public static bool UpdateDeveloper(string newDeveloper)
         {
-            bool result = false;
-            List<Game> games = GameManager.RetrieveAllGames();
-            if (games.Count(g=> g.Developer == newDeveloper) == 0)
+            bool result = true;
+            if (CountDeveloper(newDeveloper) == 0)
             {
                 result = 1 == DeveloperAccessor.CreateDeveloper(newDeveloper, true);
-            }
-            else
-            {
-                result = true;
             }
             
             return result;
@@ -68,8 +63,7 @@ namespace VideoGameLogicLayer
             {
                 return result;
             }
-            List<Game> games = GameManager.RetrieveAllGames();
-            if (games.Count(g => g.Developer == oldDeveloper) == 0)
+            if (CountDeveloper(oldDeveloper) == 0)
             {
                 result = 1 == DeveloperAccessor.DeleteDeveloper(oldDeveloper);
             }
@@ -93,6 +87,23 @@ namespace VideoGameLogicLayer
             }
 
             return result;
+        }
+
+        public static int CountDeveloper(string developer)
+        {
+            int count = 0;
+
+            try
+            {
+                count = DeveloperAccessor.CountDeveloper(developer);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
+            return count;
         }
 
     }

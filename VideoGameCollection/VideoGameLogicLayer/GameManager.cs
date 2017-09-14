@@ -45,13 +45,6 @@ namespace VideoGameLogicLayer
             return games;
         }
 
-        //Time given, replace with proper stored procedure; better yet, replace with specific ones that give the count of each field,
-        //because that's all I'm using this for.
-        public static List<Game> RetrieveAllGames()
-        {
-            return RetrieveGames(true).Union(RetrieveGames(false)).ToList();
-        }
-
         public static Game RetrieveGame(int gameId)
         {
             Game game = null;

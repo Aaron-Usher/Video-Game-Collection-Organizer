@@ -128,6 +128,33 @@ namespace VideoGameDataAccess
             return rows;
         }
 
+        public static int CountDeveloper(string developer)
+        {
+            var count = 0;
+
+            var conn = DatabaseConnection.RetrieveDatabaseConnection();
+            var cmdText = @"vsp_count_developer";
+            var cmd = new SqlCommand(cmdText, conn) { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@DEVELOPER_ID", developer);
+
+            try
+            {
+                conn.Open();
+                count = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return count;
+        }
+
     }
 
 }
