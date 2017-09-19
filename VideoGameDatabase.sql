@@ -844,6 +844,22 @@ AS
 	END
 GO
 
+print'' print'***Creating procedure vsp_verify_user_game'
+GO
+CREATE PROCEDURE [dbo].[vsp_verify_user_game]
+(
+	@GAME_ID INT,
+	@USER_ID INT
+)
+AS
+	BEGIN
+		SELECT COUNT(*)
+		FROM USER_GAME
+		WHERE USER_ID = @USER_ID
+		AND GAME_ID = @GAME_ID
+	END
+GO
+
 --One final print to make it look better.
 print''
 GO

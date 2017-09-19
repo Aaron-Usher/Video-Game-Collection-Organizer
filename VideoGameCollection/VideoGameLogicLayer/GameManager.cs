@@ -209,7 +209,7 @@ namespace VideoGameLogicLayer
 
             try
             {
-                result = RetrieveUserGames(username).Any(g => g.Id == gameId);
+                result = 1 == GameAccessor.VerifyUserGame(gameId, username);
             }
             catch (Exception)
             {

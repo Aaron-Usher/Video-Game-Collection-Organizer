@@ -70,11 +70,7 @@ namespace VideoGameLogicLayer
         public static bool VerifyConsole(string oldConsole)
         {
             bool result = true;
-            if (string.IsNullOrEmpty(oldConsole))
-            {
-                return true;
-            }
-            if (CountConsole(oldConsole) == 0)
+            if (!string.IsNullOrEmpty(oldConsole) && CountConsole(oldConsole) == 0)
             {
                 result = 1 == ConsoleAccessor.DeleteConsole(oldConsole);
             }

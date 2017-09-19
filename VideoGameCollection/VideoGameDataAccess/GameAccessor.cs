@@ -249,6 +249,34 @@ namespace VideoGameDataAccess
             return rows;
         }
 
+        public static int VerifyUserGame(int gameId, string username)
+        {
+            int rows = 0;
+
+            var conn = DatabaseConnection.RetrieveDatabaseConnection();
+            var cmdText = @"vsp_verify_user_game";
+            var cmd = new SqlCommand(cmdText, conn) { CommandType = CommandType.StoredProcedure };
+
+            cmd.Parameters.AddWithValue("@GAME_ID", gameId);
+            cmd.Parameters.AddWithValue("@USER_ID", username);
+
+            try
+            {
+                conn.Open();
+                rows = (int)cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return rows;
+        }
+
         public static int UpdateGame(Game oldGame, Game newGame)
         {
             int rows = 0;
